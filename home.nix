@@ -5,7 +5,6 @@
   # manage.
   home.username = "daniel";
   home.homeDirectory = "/Users/daniel";
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -15,56 +14,140 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs; [
+    # dev
+    docker
+    docker-compose
+    terraform
+    asdf-vm
+    awscli2
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    # others
+    iterm2
+    slack
   ];
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/daniel/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "eunsukimme";
+    userEmail = "eunsu.dev@gmail.com";
+    aliases = {
+      st = "status";
+    };
+  };
+  
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
+      prompt = "enabled";
+      aliases = {
+        co = "pr checkout";
+      };
+    };
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+    plugins = [
+      {
+        name = "zsh-powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+      }
+      {
+        name = "zsh-fast-syntax-highlighting";
+        src = pkgs.zsh-fast-syntax-highlighting;
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.zsh-autosuggestions;
+      }
+      {
+        name = "zsh-completions";
+        src = pkgs.zsh-completions;
+      }
+      {
+        name = "zsh-fzf";
+        src = pkgs.oh-my-zsh;
+      }
+    ];
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "fzf" "fasd" "asdf" ];
+    };
+    shellAliases = {
+      cat = "bat";
+    };
+    initExtraFirst = ''
+      # Powerlevel10k instant prompt
+      if [[ -r "$HOME/.cache/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "$HOME/.cache/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
+    '';
+    initExtraBeforeCompInit = ''
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    '';
+  };
+
+  programs.neovim = {
+    enable = true;
+    coc.enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      SpaceVim
+    ];
+  };
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      naumovs.color-highlight
+      dbaeumer.vscode-eslint
+      github.copilot
+      eamodio.gitlens
+      hashicorp.terraform
+      jnoortheen.nix-ide
+      esbenp.prettier-vscode
+      prisma.prisma
+      jock.svg
+    ];
+    userSettings = {
+      "editor.codeActionsOnSave" = {
+        "source.fixAll" = true;
+      };
+      "editor.inlineSuggest.enabled" = true;
+      "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
+      "eslint.validate" = [
+        "javascript"
+        "javascriptreact"
+        "typescript"
+        "typescriptreact"
+        "vue"
+      ];
+      "stylelint.validate" = [
+        "css"
+        "scss"
+        "vue"
+      ];
+      "eslint.workingDirectories" = [
+        {
+          "mode" = "auto";
+        }
+      ];
+      "workbench.iconTheme" = "vscode-icons";
+    };
+  };
+
+  programs.fzf.enable = true;
+
+  programs.bat.enable = true;
+
+  programs.ssh.enable = true;
 }
