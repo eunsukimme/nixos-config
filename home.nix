@@ -25,6 +25,7 @@
     # others
     iterm2
     slack
+    zoom-us
   ];
 
   # Let Home Manager install and manage itself.
