@@ -16,8 +16,7 @@
 
   home.packages = with pkgs; [
     # dev
-    docker
-    docker-compose
+    docker docker-compose
     terraform
     asdf-vm
     awscli2
