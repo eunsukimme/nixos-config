@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, sources ? import ./nix/sources.nix, pkgs ? import sources.nixpkgs {}, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
