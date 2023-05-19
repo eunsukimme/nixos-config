@@ -148,5 +148,14 @@
 
   programs.bat.enable = true;
 
-  programs.ssh.enable = true;
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+    Host github.com
+      AddKeysToAgent yes
+      IgnoreUnknown UseKeychain
+      UseKeychain yes
+      IdentityFile ~/.ssh/id_ed25519
+    '';
+  };
 }
