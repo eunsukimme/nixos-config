@@ -26,6 +26,7 @@
     slack
     zoom-us
     karabiner-elements
+    raycast
   ];
 
   # Let Home Manager install and manage itself.
