@@ -25,6 +25,7 @@
     iterm2
     slack
     zoom-us
+    karabiner-elements
   ];
 
   # Let Home Manager install and manage itself.
