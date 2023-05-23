@@ -86,6 +86,7 @@
     };
     initExtra = ''
     export PATH=/opt/homebrew/bin:$PATH
+    test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
