@@ -18,7 +18,6 @@
     # dev
     docker docker-compose
     terraform
-    asdf-vm
     awscli2
 
     # others
@@ -87,6 +86,7 @@
     initExtra = ''
     export PATH=/opt/homebrew/bin:$PATH
     test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
+    . $HOME/.asdf/asdf.sh
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
