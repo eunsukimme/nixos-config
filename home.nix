@@ -164,4 +164,6 @@
       IdentityFile ~/.ssh/id_ed25519
     '';
   };
+
+  programs.direnv.enable = true;
 }
