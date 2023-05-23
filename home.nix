@@ -82,6 +82,9 @@
     shellAliases = {
       cat = "bat";
     };
+    initExtra = ''
+    export PATH=/opt/homebrew/bin:$PATH
+    '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
       if [[ -r "$HOME/.cache/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
