@@ -123,31 +123,6 @@
       prisma.prisma
       jock.svg
     ];
-    userSettings = {
-      "editor.codeActionsOnSave" = {
-        "source.fixAll" = true;
-      };
-      "editor.inlineSuggest.enabled" = true;
-      "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
-      "eslint.validate" = [
-        "javascript"
-        "javascriptreact"
-        "typescript"
-        "typescriptreact"
-        "vue"
-      ];
-      "stylelint.validate" = [
-        "css"
-        "scss"
-        "vue"
-      ];
-      "eslint.workingDirectories" = [
-        {
-          "mode" = "auto";
-        }
-      ];
-      "workbench.iconTheme" = "vscode-icons";
-    };
   };
 
   programs.fzf.enable = true;
