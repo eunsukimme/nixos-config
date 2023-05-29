@@ -38,6 +38,11 @@
     aliases = {
       st = "status";
     };
+    extraConfig = {
+      core = {
+        editor = "code --wait";
+      };
+    };
   };
   
   programs.gh = {
