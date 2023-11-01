@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "daniel";
-  home.homeDirectory = "/Users/daniel";
+  home.username = "eunsukimme";
+  home.homeDirectory = "/Users/eunsukimme";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -20,12 +20,17 @@
     terraform
     awscli2
 
-    # others
+    # utils
     iterm2
     slack
     zoom-us
     karabiner-elements
     raycast
+    discord
+
+    # other deps
+    gpgme
+    gawk
   ];
 
   # Let Home Manager install and manage itself.
@@ -59,7 +64,7 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     plugins = [
       {
         name = "zsh-powerlevel10k";
@@ -83,7 +88,7 @@
     ];
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "fzf" "fasd" "asdf" ];
+      plugins = [ "git" "fzf" "fasd" ];
     };
     shellAliases = {
       cat = "bat";

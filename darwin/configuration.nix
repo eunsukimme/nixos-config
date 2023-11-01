@@ -23,5 +23,19 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
+  system.defaults.dock.autohide = true;
   system.defaults.dock.mru-spaces = false;
+
+  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+  
+  system.defaults.trackpad.Clicking = true;
+  system.defaults.trackpad.Dragging = true;
+  system.defaults.trackpad.TrackpadThreeFingerDrag = true;
+
+  system.defaults.finder.AppleShowAllExtensions = true;
+  system.defaults.finder.ShowPathbar = true;
 }
