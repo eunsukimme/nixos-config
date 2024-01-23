@@ -29,8 +29,6 @@
     discord
 
     # other deps
-    gpgme
-    gawk
   ];
 
   # Let Home Manager install and manage itself.
