@@ -19,6 +19,8 @@
     docker docker-compose
     terraform
     awscli2
+    coreutils
+    jq
 
     # utils
     iterm2
@@ -43,7 +45,7 @@
     };
     extraConfig = {
       core = {
-        editor = "code --wait";
+        editor = "cursor -w";
       };
     };
   };
