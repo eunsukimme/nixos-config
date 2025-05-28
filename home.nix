@@ -12,11 +12,12 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "22.11"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
+
 
   home.packages = with pkgs; [
     # dev
-    docker docker-compose
+    docker docker-compose 
     terraform
     awscli2
     coreutils
@@ -63,7 +64,7 @@
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     plugins = [
       {
@@ -115,14 +116,11 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      SpaceVim
-    ];
   };
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       naumovs.color-highlight
       dbaeumer.vscode-eslint
       github.copilot
