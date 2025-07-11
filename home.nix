@@ -150,6 +150,14 @@
       IgnoreUnknown UseKeychain
       UseKeychain yes
       IdentityFile ~/.ssh/id_ed25519
+
+    Host github.com-emu
+      HostName github.com
+      User git
+      IdentityFile ~/.ssh/id_ed25519_github_emu
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+      UseKeychain yes
     '';
   };
 
