@@ -30,6 +30,7 @@
     karabiner-elements
     raycast
     discord
+    monitorcontrol
 
     # other deps
   ];
