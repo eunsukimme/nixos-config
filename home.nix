@@ -98,6 +98,7 @@
       cat = "bat";
     };
     initExtra = ''
+    export NIXPKGS_ALLOW_UNFREE=1
     export PATH=/opt/homebrew/bin:$PATH
     test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
     . $HOME/.asdf/asdf.sh
