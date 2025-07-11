@@ -23,6 +23,7 @@
     coreutils
     jq
     code-cursor
+    asdf-vm
 
     # utils
     iterm2
