@@ -22,6 +22,7 @@
     awscli2
     coreutils
     jq
+    code-cursor
 
     # utils
     iterm2
