@@ -102,6 +102,7 @@
     export PATH=/opt/homebrew/bin:$PATH
     test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
     . $HOME/.asdf/asdf.sh
+    . "$HOME/.nix-profile/share/asdf-vm/asdf.sh"
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
