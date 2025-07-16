@@ -42,8 +42,8 @@
 
   programs.git = {
     enable = true;
-    userName = "eunsukimme";
-    userEmail = "eunsu.dev@gmail.com";
+    userName = "evan-kim_karrot";
+    userEmail = "evan.kim@daangn.com";
     aliases = {
       st = "status";
     };
