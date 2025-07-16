@@ -1,10 +1,10 @@
-{ config, sources ? import ./nix/sources.nix, pkgs ? import sources.nixpkgs {}, ... }:
+{ config, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "evan.kim";
-  home.homeDirectory = "/Users/evan.kim";
+  home.username = "eunsukimme";
+  home.homeDirectory = "/Users/eunsukimme";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -12,7 +12,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
 
   home.packages = with pkgs; [
@@ -22,7 +22,6 @@
     awscli2
     coreutils
     jq
-    code-cursor
     asdf-vm
 
     # utils
@@ -129,7 +128,7 @@
 
   programs.vscode = {
     enable = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
+    extensions = with pkgs.vscode-extensions; [
       naumovs.color-highlight
       dbaeumer.vscode-eslint
       github.copilot
