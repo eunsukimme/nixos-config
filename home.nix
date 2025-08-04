@@ -103,6 +103,10 @@
     test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
     . $HOME/.asdf/asdf.sh
     . "$HOME/.nix-profile/share/asdf-vm/asdf.sh"
+
+    # bun setup
+    export BUN_INSTALL="$HOME/.bun" 
+    export PATH="$BUN_INSTALL/bin:$PATH"
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
