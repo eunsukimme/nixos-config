@@ -107,6 +107,9 @@
     # bun setup
     export BUN_INSTALL="$HOME/.bun" 
     export PATH="$BUN_INSTALL/bin:$PATH"
+
+    # uv setup
+    source $HOME/.local/bin/env
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
