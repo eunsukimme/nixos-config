@@ -20,6 +20,7 @@
     docker docker-compose 
     terraform
     awscli2
+    nodePackages.aws-cdk
     coreutils
     jq
     code-cursor
