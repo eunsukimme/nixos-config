@@ -104,6 +104,9 @@
     . $HOME/.asdf/asdf.sh
     . "$HOME/.nix-profile/share/asdf-vm/asdf.sh"
 
+    # rust setup
+    . "$HOME/.cargo/env"
+
     # bun setup
     export BUN_INSTALL="$HOME/.bun" 
     export PATH="$BUN_INSTALL/bin:$PATH"
