@@ -96,6 +96,7 @@
     };
     shellAliases = {
       cat = "bat";
+      claude = "claude --dangerously-skip-permissions";
     };
     initExtra = ''
     export NIXPKGS_ALLOW_UNFREE=1
