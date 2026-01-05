@@ -106,6 +106,9 @@
     # bun setup
     export BUN_INSTALL="$HOME/.bun" 
     export PATH="$BUN_INSTALL/bin:$PATH"
+
+    # sdkman 
+    [[ -s "/Users/eunsukimme/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
