@@ -36,6 +36,29 @@
 
     # other deps
   ];
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    NIXPKGS_ALLOW_UNFREE = 1;
+    # Example of using a variable within another path
+    MY_CONFIG_DIR = "${config.home.homeDirectory}/.config/myprogram";
+    alpha = "daangn/alpha";
+    alpha_kr = "daangn/alpha/kr";
+    # alpha_jp = "daangn/alpha/jp";
+    # alpha_gb = "daangn/alpha/gb";
+    # alpha_ca = "daangn/alpha/ca";
+    prod = "daangn/prod";
+    prod_kr = "daangn/prod/kr";
+    # prod_jp = "daangn/prod/jp";
+    # prod_gb = "daangn/prod/gb";
+    # prod_ca = "daangn/prod/ca";
+    data = "daangn/data";
+    data_kr = "daangn/data/kr";
+    # data_jp = "daangn/data/jp";
+    # data_gb = "daangn/data/gb";
+    # data_ca = "daangn/data/ca";
+    ci_alpha = "daangn/ci-alpha";
+    ci_prod = "daangn/ci-prod";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -94,9 +117,28 @@
       enable = true;
       plugins = [ "git" "fzf" "fasd" ];
     };
+    
     shellAliases = {
       cat = "bat";
       claude = "claude --dangerously-skip-permissions";
+      # aws aliases
+      aws-alpha = ''aws-vault exec "$alpha" -- aws'';
+      aws-alpha-kr = ''aws-vault exec "$alpha_kr" -- aws'';
+      # aws-alpha-jp = ''aws-vault exec "$alpha_jp" -- aws'';
+      # aws-alpha-gb = ''aws-vault exec "$alpha_gb" -- aws'';
+      # aws-alpha-ca = ''aws-vault exec "$alpha_ca" -- aws'';
+      aws-prod = ''aws-vault exec "$prod" -- aws'';
+      aws-prod-kr = ''aws-vault exec "$prod_kr" -- aws'';
+      # aws-prod-jp = ''aws-vault exec "$prod_jp" -- aws'';
+      # aws-prod-gb = ''aws-vault exec "$prod_gb" -- aws'';
+      # aws-prod-ca = ''aws-vault exec "$prod_ca" -- aws'';
+      aws-data = ''aws-vault exec "$data" -- aws'';
+      aws-data-kr = ''aws-vault exec "$data_kr" -- aws'';
+      # aws-data-jp = ''aws-vault exec "$data_jp" -- aws'';
+      # aws-data-gb = ''aws-vault exec "$data_gb" -- aws'';
+      # aws-data-ca = ''aws-vault exec "$data_ca" -- aws'';
+      aws-ci-alpha = ''aws-vault exec "$ci_alpha" -- aws'';
+      aws-ci-prod = ''aws-vault exec "$ci_prod" -- aws'';
     };
     initExtra = ''
     export NIXPKGS_ALLOW_UNFREE=1
