@@ -114,6 +114,9 @@
 
     # uv setup
     source $HOME/.local/bin/env
+
+    # intellij cli
+    export PATH="$PATH:/Applications/IntelliJ IDEA.app/Contents/MacOS"
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
