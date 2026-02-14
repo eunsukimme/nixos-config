@@ -110,6 +110,11 @@
 
     # sdkman 
     [[ -s "/Users/eunsukimme/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+    # android studio
+    export ANDROID_HOME=$HOME/Library/Android/sdk
+    export PATH=$PATH:$ANDROID_HOME/emulator
+    export PATH=$PATH:$ANDROID_HOME/platform-tools
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
