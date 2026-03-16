@@ -159,6 +159,9 @@
 
     # intellij cli
     export PATH="$PATH:/Applications/IntelliJ IDEA.app/Contents/MacOS"
+
+    # claude code bin
+    export PATH="$PATH:$HOME/.local/bin/claude"
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
