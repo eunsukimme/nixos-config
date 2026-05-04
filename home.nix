@@ -22,7 +22,6 @@
     awscli2
     coreutils
     jq
-    code-cursor
     asdf-vm
 
     # utils
@@ -72,7 +71,7 @@
     };
     extraConfig = {
       core = {
-        editor = "cursor -w";
+        editor = "code -w";
       };
     };
   };
@@ -189,10 +188,8 @@
       dbaeumer.vscode-eslint
       github.copilot
       eamodio.gitlens
-      hashicorp.terraform
       jnoortheen.nix-ide
       esbenp.prettier-vscode
-      prisma.prisma
       jock.svg
     ];
   };
