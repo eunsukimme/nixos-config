@@ -161,6 +161,10 @@
 
     # claude code bin
     export PATH="$PATH:$HOME/.local/bin/claude"
+
+    # github
+    export GITHUB_TOKEN=$(env -u GITHUB_TOKEN gh auth token)
+    export GITHUB_USERNAME=evan-kim_karrot
     '';
     initExtraFirst = ''
       # Powerlevel10k instant prompt
