@@ -71,7 +71,7 @@
     };
     extraConfig = {
       core = {
-        editor = "code -w";
+        editor = "/usr/local/bin/code -w";
       };
     };
   };
@@ -183,6 +183,16 @@
 
   programs.vscode = {
     enable = true;
+    # nix-store vscode was overwritten by its own updater and fails code signing,
+    # so point `code` at the /Applications install. version only feeds HM's ">= 1.74" check.
+    package = pkgs.runCommand "vscode-system" {
+      pname = "vscode";
+      version = "1.140.0";
+      meta.mainProgram = "code";
+    } ''
+      mkdir -p $out/bin
+      ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" $out/bin/code
+    '';
     profiles.default.extensions = with pkgs.vscode-extensions; [
       naumovs.color-highlight
       dbaeumer.vscode-eslint
